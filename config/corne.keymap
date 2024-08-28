@@ -54,9 +54,8 @@
          key-positions = <0 9 20 29>;
          bindings = <&to 0>;
          layers = <4>;
-      }
-
-    }
+      };
+    };
 
     keymap {
         compatible = "zmk,keymap";
