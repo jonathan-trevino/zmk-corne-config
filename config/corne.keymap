@@ -39,6 +39,25 @@
         };
     };
 
+    combos {
+      compatible="zmk,combos";
+      // go to gaming layer when pressing corner keys
+      combo_gaming {
+        timeout-ms = <50>;
+        key-positions = <0 9 20 29>;
+        bindings = <&to 4>;
+        layers = <0>;
+      };
+     // go to defaul layer when pressing corner keys
+      combo_gaming {
+         timeout-ms = <50>;
+         key-positions = <0 9 20 29>;
+         bindings = <&to 0>;
+         layers = <4>;
+      }
+
+    }
+
     keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -59,15 +78,15 @@
         lower_layer {
         // -----------------------------------------------------------------------------------------
         // |    1     | 2 |  3  |  4  |  5  |     |  6  |  7  |  8  |  9  |  0   |
-        // | CAPSLOCK |   |     |     |     |     |     |LEFT |DOWN |  UP |RIGHT |
+        // | CAPSLOCK |   |     |     |     |     |LEFT |DOWN |  UP |RIGHT|      |
         // |          |   |     |     |     |     |     |HOME |PAGED|PAGEU|END   |
-        //                | CMD | SHFT| TAB |     | ENT | ESC |     |
+        //                | CMD | SHFT|     |     | TAB | ESC |     |
                        display-name = "Lower";
                        bindings = <
                         &kp N1       &kp N2       &kp N3       &kp N4       &kp N5           &kp N6    &kp N7    &kp N8      &kp N9    &kp N0
-                        &kp CAPS     &trans       &trans       &trans       &trans           &trans    &kp LARW  &kp DARW    &kp UARW  &kp RARW
+                        &kp CAPS     &trans       &trans       &trans       &trans           &kp LARW  &kp DARW  &kp UARW    &kp RARW  &trans
                         &trans       &trans       &trans       &trans       &trans           &trans    &kp HOME  &kp PG_DN   &kp PG_UP &kp END
-                        &kp LGUI     &trans       &kp TAB        &trans   &kp ESC   &trans
+                                                  &kp LGUI     &trans       &trans           &kp TAB   &kp ESC   &trans
                         >;
         };
 
@@ -101,6 +120,20 @@
                        &kp LGUI        &trans        &kp SPACE        &trans   &kp ESC   &kp TAB
                  >;
         };
+       gaming_layer {
+        // -----------------------------------------------------------------------------------------
+        // |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U   |  I   |  O   | P |
+        // |  A  |  S  |  D  |  F  |  G  |     |  H  |  J   |  K   |  L   | ' | 
+        // |CTRL |  X  |  C  |  V  |  B  |     |  N  |  M   |  ,   |  .   | ; |
+        //             | TAB | SHFT| SPC |     | ENT | BKSPC| Z    |
+                        display-name = "Base";
+                        bindings = <
+                         &kp Q &kp W &kp E &kp R &kp T     &kp Y   &kp U  &kp I     &kp O     &kp P 
+                         &kp A &kp S &kp D &kp F &kp G     &kp H   &kp J  &kp K     &kp L     &kp SQT 
+                         &kp LCTRL &kp X &kp C &kp V &kp B     &kp N   &kp M  &kp COMMA &kp DOT    &kp SEMI 
+                            &kp TAB &kp LSHIFT &kp SPACE     &kp RET &kp BSPC &kp Z
+                        >;
+          };
 
     };
 
